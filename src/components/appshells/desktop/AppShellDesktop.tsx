@@ -41,16 +41,16 @@ export default function AppShellDesktop(props: {
     //   href: "https://demo.risefinance.io/zk-dashboard/",
     //   current: false,
     // },
-    {
-      name: "RISE L3 Explorer",
-      href: "https://explorer.risefinance.io/",
-      current: false,
-    },
-    {
-      name: "Arbitrum L2 Explorer",
-      href: "https://goerli.arbiscan.io/",
-      current: false,
-    },
+    // {
+    //   name: "RISE L3 Explorer",
+    //   href: "https://explorer.risefinance.io/",
+    //   current: false,
+    // },
+    // {
+    //   name: "Arbitrum L2 Explorer",
+    //   href: "https://goerli.arbiscan.io/",
+    //   current: false,
+    // },
   ];
   const userNavigation = [
     { name: "Dashboard", href: "#" },

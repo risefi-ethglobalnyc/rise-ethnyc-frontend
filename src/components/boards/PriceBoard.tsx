@@ -140,40 +140,6 @@ export default function PriceBoard(props: PriceBoardProps) {
                   </div>
                 </Box>
               </div>
-              {/* <div className="flex-none w-30 h-15 px-3 text-xs text-center">
-                <Box>
-                  <Text fz="xs" className="text-gray-400">
-                    Index Price
-                  </Text>
-                  <Text fz="sm">{formatUsdString(wsPrice.current, 2)}</Text>
-                </Box>
-              </div> */}
-              {/* <div className="flex-none w-30 h-15 px-3 text-xs text-center">
-                <Box>
-                  <Text fz="xs" className="text-gray-400">
-                    Long Open Interest
-                  </Text>
-                  <Text fz="sm">{formatUsdString(+globalLongOI, 1)} ETH</Text>
-                </Box>
-              </div>
-              <div className="flex-none w-30 h-15 px-3 text-xs text-center">
-                <Box>
-                  <Text fz="xs" className="text-gray-400">
-                    Short Open Interest
-                  </Text>
-                  <Text fz="sm">{formatUsdString(+globalShortOI, 1)} ETH</Text>
-                </Box>
-              </div>
-              <div className="flex-none w-30 h-15 px-3 text-xs text-center">
-                <Box>
-                  <Text fz="xs" className="text-gray-400">
-                    Price Buffer
-                  </Text>
-                  <Text fz="xm">
-                    {plusChar.concat((+priceBuffer * 100).toFixed(4))}%
-                  </Text>
-                </Box>
-              </div> */}
             </div>
           </ul>
         </div>
