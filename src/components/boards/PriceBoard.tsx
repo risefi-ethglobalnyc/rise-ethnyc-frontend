@@ -1,12 +1,37 @@
 import { useEffect } from "react";
 import { useSetRecoilState, useRecoilValue } from "recoil";
-
+import { SignalIcon, ChartBarIcon } from "@heroicons/react/24/outline";
 import { Group, Box, Text } from "@mantine/core";
 import EthLogo from "@/components/logos/EthLogo";
 
 import { formatUsdString } from "../../utils/formatter";
 
 const websocketUrl = "wss://fstream.binance.com/ws"; // futures market
+
+const stats = [
+  {
+    id: 1,
+    name: "Price Sources",
+    stat: "5",
+    icon: SignalIcon,
+    contents: [
+      "wss://fstream.binance.com/ws",
+      "wss://fstream.binance.com/ws",
+      "wss://fstream.binance.com/ws",
+      "wss://fstream.binance.com/ws",
+      "wss://fstream.binance.com/ws",
+    ],
+    indices: [],
+  },
+  {
+    id: 2,
+    name: "Last Prices",
+    stat: "$ 1947.6",
+    icon: ChartBarIcon,
+    contents: ["1947.6", "1947.6", "1947.6", "1947.6", "1947.6"],
+    indices: ["Source A", "Source B", "Source C", "Source D", "Source E"],
+  },
+];
 
 interface PriceBoardProps {
   wsPrice: React.MutableRefObject<number>;
@@ -27,38 +52,10 @@ export default function PriceBoard(props: PriceBoardProps) {
     setPriceUpdateFlag,
   } = props;
 
-  // Recoil States
-  // const setGlobalLongOI = useSetRecoilState(globalLongOIState);
-  // const setGlobalShortOI = useSetRecoilState(globalShortOIState);
-  // const setPriceBuffer = useSetRecoilState(priceBufferState);
-
-  // const priceBuffer = useRecoilValue(priceBufferState);
-  // const globalLongOI = useRecoilValue(globalLongOIState);
-  // const globalShortOI = useRecoilValue(globalShortOIState);
-
-  // const _wsPrice = useRef<number | string>(0); // temporary
-  // const [oraclePriceUp, setOraclePriceUp] = useState<boolean | null>(null);
-
-  // const plusChar = +priceBuffer > 0 ? "+ " : "";
-
   // get websocket price
   useEffect(() => {
     getWebsocketPrice();
   }, []);
-
-  // useEffect(() => {
-  //   getOIStatus().then((oiStatus) => {
-  //     const [globalLongOI, globalShortOI] = oiStatus;
-  //     setGlobalLongOI(+globalLongOI);
-  //     setGlobalShortOI(+globalShortOI);
-  //   });
-
-  //   // eslint-disable-next-line react-hooks/rules-of-hooks
-  //   getPriceBuffer().then((priceBuffer) => {
-  //     // const _priceBuffer = useRecoilValue(priceBufferState);
-  //     setPriceBuffer(+priceBuffer);
-  //   });
-  // });
 
   async function getWebsocketPrice() {
     let newWsPrice: any;
@@ -157,6 +154,32 @@ export default function PriceBoard(props: PriceBoardProps) {
             </div>
           </div>
         </div>
+      </dl>
+      <dl className="mx-5 mb-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {stats.map((item) => (
+          <div
+            key={item.id}
+            className="relative overflow-hidden rounded-lg bg-gray-900 px-4 pb-5 pt-5 shadow sm:px-6 sm:pt-6"
+          >
+            <dt>
+              <div className="absolute rounded-md bg-indigo-500 p-3">
+                <item.icon className="h-6 w-6 text-white" aria-hidden="true" />
+              </div>
+              <p className="ml-16 truncate text-sm font-medium text-gray-500">
+                {item.name}
+              </p>
+            </dt>
+            <dd className="ml-16 flex flex-col items-baseline pb-6 sm:pb-7">
+              {item.contents.map((content, idx) => (
+                <div key={idx}>
+                  <p className="text-xs font-semibold text-gray-100">
+                    {content}
+                  </p>
+                </div>
+              ))}
+            </dd>
+          </div>
+        ))}
       </dl>
     </>
   );

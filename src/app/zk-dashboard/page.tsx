@@ -9,7 +9,7 @@ import {
 } from "@heroicons/react/24/outline";
 
 import AppShellDesktop from "@/components/appshells/desktop/AppShellDesktop";
-import SlideOver from "./SlideOver";
+import SlideOver from "../SlideOver";
 import EthLogo from "@/components/logos/EthLogo";
 import UsdcLogo from "@/components/logos/UsdcLogo";
 import UsdcLogoSmall from "@/components/logos/UsdcLogoSmall";
@@ -37,14 +37,6 @@ const stats = [
     contents: ["1947.6", "1947.6", "1947.6", "1947.6", "1947.6"],
     indices: ["Source A", "Source B", "Source C", "Source D", "Source E"],
   },
-  // {
-  //   id: 3,
-  //   name: "Last Data Integrity Proofs",
-  //   stat: "24.57%",
-  //   icon: AdjustmentsHorizontalIcon,
-  //   contents: ["0.15", "0.24", "0.18", "0.31", "0.12"],
-  //   indices: ["Weight A", "Weight B", "Weight C", "Weight D", "Weight E"],
-  // },
 ];
 
 const statuses = {
