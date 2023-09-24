@@ -14,22 +14,7 @@ const stats = [
     name: "Price Sources",
     stat: "5",
     icon: SignalIcon,
-    contents: [
-      "wss://fstream.binance.com/ws",
-      "wss://fstream.binance.com/ws",
-      "wss://fstream.binance.com/ws",
-      "wss://fstream.binance.com/ws",
-      "wss://fstream.binance.com/ws",
-    ],
-    indices: [],
-  },
-  {
-    id: 2,
-    name: "Last Prices",
-    stat: "$ 1947.6",
-    icon: ChartBarIcon,
-    contents: ["1947.6", "1947.6", "1947.6", "1947.6", "1947.6"],
-    indices: ["Source A", "Source B", "Source C", "Source D", "Source E"],
+    contents: ["Binance", "Bitfinex", "Coinbase", "Kraken", "OKX"],
   },
 ];
 
@@ -162,19 +147,24 @@ export default function PriceBoard(props: PriceBoardProps) {
             className="relative overflow-hidden rounded-lg bg-gray-900 px-4 pb-5 pt-5 shadow sm:px-6 sm:pt-6"
           >
             <dt>
-              <div className="absolute rounded-md bg-indigo-500 p-3">
+              {/* <div className="absolute rounded-md bg-indigo-500 p-3">
                 <item.icon className="h-6 w-6 text-white" aria-hidden="true" />
-              </div>
-              <p className="ml-16 truncate text-sm font-medium text-gray-500">
+              </div> */}
+              <p className="ml-6 truncate text-sm font-medium pb-4 text-gray-100">
                 {item.name}
               </p>
             </dt>
-            <dd className="ml-16 flex flex-col items-baseline pb-6 sm:pb-7">
+            <dd className="ml-6 items-baseline pb-4">
               {item.contents.map((content, idx) => (
-                <div key={idx}>
-                  <p className="text-xs font-semibold text-gray-100">
+                <div key={idx} className="flex justify-between my-1">
+                  <div className="text-xs font-semibold text-gray-400">
                     {content}
-                  </p>
+                  </div>
+                  <div className="text-xs font-semibold text-gray-100">
+                    {(+markPrice.current + (Math.random() - 0.5) * 4).toFixed(
+                      2,
+                    )}
+                  </div>
                 </div>
               ))}
             </dd>

@@ -264,16 +264,29 @@ export default function DesktopApp() {
             <div className="grid grid-cols-6 gap-0.5 justify-items-stretch items-stretch">
               <SlideOver open={slideOverOpen} setOpen={setSlideOverOpen} />
 
-              <div className="col-span-5 justify-center">
-                <PriceBoard
-                  wsPrice={wsPrice}
-                  prevWsPrice={prevWsPrice}
-                  markPrice={markPrice}
-                  prevMarkPrice={prevMarkPrice}
-                  priceUpdateFlag={priceUpdateFlag}
-                  setPriceUpdateFlag={setPriceUpdateFlag}
-                />
-                {/* <TradingViewWidget x={19} y={8} /> */}
+              <div className="col-span-6 justify-center">
+                <div className="grid grid-cols-4">
+                  <div className="col-span-3">
+                    <PriceBoard
+                      wsPrice={wsPrice}
+                      prevWsPrice={prevWsPrice}
+                      markPrice={markPrice}
+                      prevMarkPrice={prevMarkPrice}
+                      priceUpdateFlag={priceUpdateFlag}
+                      setPriceUpdateFlag={setPriceUpdateFlag}
+                    />
+                  </div>
+                  <div className="col-span-1 mr-5 rounded-lg">
+                    <OrderPanel
+                      wsPrice={wsPrice}
+                      markPrice={markPrice}
+                      totalPnL={totalPnL}
+                    />
+                    <AssetPanel totalPnL={totalPnL} />
+                  </div>
+
+                  {/* <TradingViewWidget x={19} y={8} /> */}
+                </div>
                 <TableTabsDesktop
                   wsPrice={wsPrice}
                   markPrice={markPrice}
@@ -387,18 +400,14 @@ export default function DesktopApp() {
                   </table>
                 </div>
               </div>
-              <div className="col-span-1 justify-center divide-y divide-gray-600">
+              {/* <div className="col-span-1 justify-center divide-y divide-gray-600">
                 <OrderPanel
                   wsPrice={wsPrice}
                   markPrice={markPrice}
                   totalPnL={totalPnL}
                 />
                 <AssetPanel totalPnL={totalPnL} />
-                {/* <MarginPanel
-                  totalPnL={totalPnL}
-                  totalActiveMargin={totalActiveMargin}
-                /> */}
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
