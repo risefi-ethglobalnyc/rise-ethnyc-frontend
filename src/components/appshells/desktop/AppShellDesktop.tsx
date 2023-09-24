@@ -31,21 +31,21 @@ export default function AppShellDesktop(props: {
       current: currentPageName === "Trade",
     }, // FIXME: change to demo.risefinance.io
     // { name: "Trade", href: "https://demo.risefinance.io/", current: true },
-    {
-      name: "Price Feed",
-      href: "http://localhost:3003/zk-dashboard/",
-      current: currentPageName === "Price Feed",
-    }, // FIXME: change to demo.risefinance.io
+    // {
+    //   name: "Price Feed",
+    //   href: "http://localhost:3003/zk-dashboard/",
+    //   current: currentPageName === "Price Feed",
+    // }, // FIXME: change to demo.risefinance.io
     // {
     //   name: "Price Feed",
     //   href: "https://demo.risefinance.io/zk-dashboard/",
     //   current: false,
     // },
-    // {
-    //   name: "RISE L3 Explorer",
-    //   href: "https://explorer.risefinance.io/",
-    //   current: false,
-    // },
+    {
+      name: "Explorer",
+      href: "https://explorer.risefinance.io/",
+      current: false,
+    },
     // {
     //   name: "Arbitrum L2 Explorer",
     //   href: "https://goerli.arbiscan.io/",
@@ -119,8 +119,7 @@ export default function AppShellDesktop(props: {
                 <div className="hidden md:block">
                   <div className="ml-4 flex items-center md:ml-6">
                     {/* Network Status */}
-
-                    <span className="inline-flex items-center gap-x-1.5 rounded-md mr-5 px-3 py-1 text-xs font-medium text-gray-200 ring-1 ring-inset ring-gray-200">
+                    {/* <span className="inline-flex items-center gap-x-1.5 rounded-md mr-5 px-3 py-1 text-xs font-medium text-gray-200 ring-1 ring-inset ring-gray-200">
                       <a
                         href="https://explorer.risefinance.io"
                         target="_blank"
@@ -148,7 +147,7 @@ export default function AppShellDesktop(props: {
                           <ArrowTopRightOnSquareIcon className="h-4 w-4" />
                         </div>
                       </a>
-                    </span>
+                    </span> */}
 
                     {/* Wallet Connection */}
                     <span className="inline-flex items-center gap-x-1.5 rounded-md mr-5 px-3 py-1 text-xs font-medium text-gray-200 ring-1 ring-inset ring-gray-200">
