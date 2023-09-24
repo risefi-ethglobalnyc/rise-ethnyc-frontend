@@ -10,7 +10,7 @@ export default function PositionHistoryBoardDesktop() {
   const quoteAssetName = "USDC";
 
   return (
-    <div className="bg-gray-900">
+    <div className="bg-gray-900 rounded-lg">
       <div className="px-2 sm:px-4 lg:px-4">
         <div className="flow-root">
           <div className="-mx-4 -my-2 overflow-auto sm:-mx-6 lg:-mx-8">

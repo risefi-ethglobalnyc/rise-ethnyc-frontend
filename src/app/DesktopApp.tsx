@@ -38,7 +38,7 @@ const statuses = {
 const activityItems = [
   {
     tx_id: "0xcce3...1b49",
-    commit: "2d89f0c8",
+    commit: "2d89f0c1",
     branch: "main",
     status: "Verified",
     mark_price: "1947.6",
@@ -47,7 +47,7 @@ const activityItems = [
   },
   {
     tx_id: "0xcce3...1b49",
-    commit: "2d89f0c8",
+    commit: "2d89f0c2",
     branch: "main",
     status: "Verified",
     mark_price: "1947.6",
@@ -56,7 +56,7 @@ const activityItems = [
   },
   {
     tx_id: "0xcce3...1b49",
-    commit: "2d89f0c8",
+    commit: "2d89f0c3",
     branch: "main",
     status: "Verified",
     mark_price: "1947.6",
@@ -65,7 +65,7 @@ const activityItems = [
   },
   {
     tx_id: "0xcce3...1b49",
-    commit: "2d89f0c8",
+    commit: "2d89f0c4",
     branch: "main",
     status: "Verified",
     mark_price: "1947.6",
@@ -74,7 +74,7 @@ const activityItems = [
   },
   {
     tx_id: "0xcce3...1b49",
-    commit: "2d89f0c8",
+    commit: "2d89f0c5",
     branch: "main",
     status: "Verified",
     mark_price: "1947.6",
@@ -83,7 +83,7 @@ const activityItems = [
   },
   {
     tx_id: "0xcce3...1b49",
-    commit: "2d89f0c8",
+    commit: "2d89f0c6",
     branch: "main",
     status: "Verified",
     mark_price: "1947.6",
@@ -92,7 +92,7 @@ const activityItems = [
   },
   {
     tx_id: "0xcce3...1b49",
-    commit: "2d89f0c8",
+    commit: "2d89f0c7",
     branch: "main",
     status: "Verified",
     mark_price: "1947.6",

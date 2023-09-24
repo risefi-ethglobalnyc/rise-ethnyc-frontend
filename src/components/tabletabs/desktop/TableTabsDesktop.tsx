@@ -38,25 +38,7 @@ export default function TableTabsDesktop(props: TableTabsDesktopProps) {
   ];
 
   return (
-    <div className="bg-gray-900 mx-6">
-      {/* Mobile */}
-      <div className="sm:hidden">
-        {/* Use an "onChange" listener to redirect the user to the selected tab URL. */}
-        <select
-          id="tabs"
-          name="tabs"
-          className="block w-full rounded-sm bg-gray-700 text-gray-100 border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-          //   defaultValue={tabs.find((tab) => tab.current).name}
-          // onChange={(event) => {
-          //   console.log('>>> taget value: ', event.target.value);
-          // }}
-        >
-          {tabs.map((tab) => (
-            <option key={tab.name}>{tab.name}</option>
-          ))}
-        </select>
-      </div>
-
+    <div className="bg-gray-900 mx-5 rounded-lg">
       {/* Desktop */}
       <div className="hidden sm:block">
         <nav
