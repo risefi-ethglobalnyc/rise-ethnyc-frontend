@@ -212,7 +212,7 @@ export default function DesktopApp() {
       setTotalActiveMargin(totalMargin);
     };
     getOpenPositionsFormatted();
-  }, []);
+  });
 
   useEffect(() => {
     console.log(">>> Desktop::useEffect::getOrderHistory");
@@ -346,7 +346,7 @@ export default function DesktopApp() {
                           scope="col"
                           className="hidden py-2 pl-0 pr-8 font-semibold sm:table-cell"
                         >
-                          Data Integrity Proof
+                          Data Integrity Proof (SNARK Impl.)
                         </th>
                         <th
                           scope="col"

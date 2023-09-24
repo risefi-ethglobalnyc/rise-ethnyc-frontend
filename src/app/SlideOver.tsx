@@ -10,20 +10,20 @@ function classNames(...classes: string[]) {
 export default function SlideOver(props: {
   open: boolean;
   setOpen: any;
-  txId: string;
-  markPrice: string;
-  dataIntegrityProof: string;
-  dataIntegrityStatus: string;
-  timestamp: string;
+  // txId: string;
+  // markPrice: string;
+  // dataIntegrityProof: string;
+  // dataIntegrityStatus: string;
+  // timestamp: string;
 }) {
   const {
     open,
     setOpen,
-    txId,
-    markPrice,
-    dataIntegrityProof,
-    dataIntegrityStatus,
-    timestamp,
+    // txId,
+    // markPrice,
+    // dataIntegrityProof,
+    // dataIntegrityStatus,
+    // timestamp,
   } = props;
 
   return (

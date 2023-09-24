@@ -19,7 +19,6 @@ export default async function getContractAddress(
 
   const addresses = await import("../../public/output/contractAddresses.json");
   const addressesObject: ContractAddressesObject = {
-    L2: addresses.L2,
     L3: addresses.L3,
   };
   const contractAddress = addressesObject[network][contractName];

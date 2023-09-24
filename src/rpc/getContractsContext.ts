@@ -15,7 +15,7 @@ export default async function getContractsContext(xyz: string) {
   const pnlUtils = await getLibrary("position", "PnlUtils", Network.L3, xyz);
 
   const wethAddress = await getPresetAddress("WETH");
-  const testUSDCAddress = await getContractAddress("TestUSDC", Network.L2);
+  const testUSDCAddress = await getContractAddress("TestUSDC", Network.L3);
 
   const traderVault = await getContract(
     "account",
@@ -53,13 +53,6 @@ export default async function getContractsContext(xyz: string) {
     false,
     xyz,
   );
-  const l3Gateway = await getContract(
-    "crosschain",
-    "L3Gateway",
-    Network.L3,
-    false,
-    xyz,
-  );
   const priceManager = await getContract(
     "price",
     "PriceManager",
@@ -74,24 +67,9 @@ export default async function getContractsContext(xyz: string) {
     false,
     xyz,
   );
-  const liquidation = await getContract(
-    "liquidation",
-    "Liquidation",
-    Network.L3,
-    false,
-    xyz,
-  );
-  const funding = await getContract("fee", "Funding", Network.L3, false, xyz);
   const positionVault = await getContract(
     "position",
     "PositionVault",
-    Network.L3,
-    false,
-    xyz,
-  );
-  const orderValidator = await getContract(
-    "order",
-    "OrderValidator",
     Network.L3,
     false,
     xyz,
@@ -110,30 +88,9 @@ export default async function getContractsContext(xyz: string) {
     false,
     xyz,
   );
-  const positionFee = await getContract(
-    "fee",
-    "PositionFee",
-    Network.L3,
-    false,
-    xyz,
-  );
-  const positionManager = await getContract(
-    "position",
-    "PositionManager",
-    Network.L3,
-    false,
-    xyz,
-  );
   const marketOrder = await getContract(
     "order",
     "MarketOrder",
-    Network.L3,
-    false,
-    xyz,
-  );
-  const orderBook = await getContract(
-    "orderbook",
-    "OrderBook",
     Network.L3,
     false,
     xyz,
@@ -145,14 +102,6 @@ export default async function getContractsContext(xyz: string) {
     false,
     xyz,
   );
-  const priceMaster = await getContract(
-    "price",
-    "PriceMaster",
-    Network.L3,
-    false,
-    xyz,
-  );
-
   return {
     mathUtils,
     positionUtils,
@@ -166,20 +115,12 @@ export default async function getContractsContext(xyz: string) {
     listingManager,
     risePool,
     globalState,
-    l3Gateway,
     priceManager,
     priceFetcher,
-    liquidation,
-    funding,
     positionVault,
-    orderValidator,
     orderHistory,
     positionHistory,
-    positionFee,
-    positionManager,
     marketOrder,
-    orderBook,
     orderRouter,
-    priceMaster,
   };
 }

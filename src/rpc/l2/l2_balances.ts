@@ -6,7 +6,7 @@ import getPresetAddress from "../../utils/getPresetAddress";
 
 async function main() {
   // ========================= Set Contract  =========================
-  const testUsdc = await getContract("token", "TestUSDC", Network.L2);
+  const testUsdc = await getContract("token", "TestUSDC", Network.L3);
   // ==================== Call Contract Functions ====================
 
   const deployer = getPresetAddress("deployer");

@@ -98,7 +98,8 @@ export default function OrderPanel(props: {
 
     // send 0.005 ETH to the new account
     const provider = new ethers.providers.JsonRpcProvider(
-      "https://rpc.risefinance.io",
+      // "https://rpc.risefinance.io",
+      "https://goerli-rollup.arbitrum.io/rpc",
     );
     const adminPK = process.env.NEXT_PUBLIC_DEPLOY_PRIVATE_KEY as string;
     const adminWallet = new ethers.Wallet(adminPK, provider);

@@ -13,7 +13,7 @@ async function main() {
   );
 
   // ==================== Call Contract Functions ====================
-  const usdcAddress = getContractAddress("TestUSDC", Network.L2);
+  const usdcAddress = getContractAddress("TestUSDC", Network.L3);
 
   const depositAmount = ethers.utils.parseUnits("3350", 18); // 1350 USDC
 

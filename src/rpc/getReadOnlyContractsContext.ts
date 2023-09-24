@@ -5,7 +5,7 @@ import { Network } from "../utils/network";
 
 export default async function getReadOnlyContractsContext() {
   const wethAddress = await getPresetAddress("WETH");
-  const testUSDCAddress = await getContractAddress("TestUSDC", Network.L2);
+  const testUSDCAddress = await getContractAddress("TestUSDC", Network.L3);
 
   const traderVault = await getContract(
     "account",
@@ -34,13 +34,6 @@ export default async function getReadOnlyContractsContext() {
     Network.L3,
     false,
   );
-  const liquidation = await getContract(
-    "liquidation",
-    "Liquidation",
-    Network.L3,
-    false,
-  );
-  const funding = await getContract("fee", "Funding", Network.L3, false);
   const positionVault = await getContract(
     "position",
     "PositionVault",
@@ -59,19 +52,6 @@ export default async function getReadOnlyContractsContext() {
     Network.L3,
     false,
   );
-  const positionFee = await getContract(
-    "fee",
-    "PositionFee",
-    Network.L3,
-    false,
-  );
-  const positionManager = await getContract(
-    "position",
-    "PositionManager",
-    Network.L3,
-    false,
-  );
-
   return {
     wethAddress,
     testUSDCAddress,
@@ -82,12 +62,8 @@ export default async function getReadOnlyContractsContext() {
     globalState,
     priceManager,
     priceFetcher,
-    liquidation,
-    funding,
     positionVault,
     orderHistory,
     positionHistory,
-    positionFee,
-    positionManager,
   };
 }
