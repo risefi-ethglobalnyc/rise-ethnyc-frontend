@@ -39,7 +39,7 @@ const activityItems = [
   {
     tx_id: "0xcce3...1b49",
     commit: "2d89f0c1",
-    branch: "main",
+    branch: "Groth16",
     status: "Verified",
     mark_price: "1947.6",
     date: "45 minutes ago",
@@ -48,7 +48,7 @@ const activityItems = [
   {
     tx_id: "0xcce3...1b49",
     commit: "2d89f0c2",
-    branch: "main",
+    branch: "Groth16",
     status: "Verified",
     mark_price: "1947.6",
     date: "45 minutes ago",
@@ -57,7 +57,7 @@ const activityItems = [
   {
     tx_id: "0xcce3...1b49",
     commit: "2d89f0c3",
-    branch: "main",
+    branch: "Groth16",
     status: "Verified",
     mark_price: "1947.6",
     date: "45 minutes ago",
@@ -66,7 +66,7 @@ const activityItems = [
   {
     tx_id: "0xcce3...1b49",
     commit: "2d89f0c4",
-    branch: "main",
+    branch: "Groth16",
     status: "Verified",
     mark_price: "1947.6",
     date: "45 minutes ago",
@@ -75,7 +75,7 @@ const activityItems = [
   {
     tx_id: "0xcce3...1b49",
     commit: "2d89f0c5",
-    branch: "main",
+    branch: "Groth16",
     status: "Verified",
     mark_price: "1947.6",
     date: "45 minutes ago",
@@ -84,7 +84,7 @@ const activityItems = [
   {
     tx_id: "0xcce3...1b49",
     commit: "2d89f0c6",
-    branch: "main",
+    branch: "Groth16",
     status: "Verified",
     mark_price: "1947.6",
     date: "45 minutes ago",
@@ -93,7 +93,7 @@ const activityItems = [
   {
     tx_id: "0xcce3...1b49",
     commit: "2d89f0c7",
-    branch: "main",
+    branch: "Groth16",
     status: "Verified",
     mark_price: "1947.6",
     date: "45 minutes ago",
@@ -102,7 +102,7 @@ const activityItems = [
   {
     tx_id: "0xcce3...1b49",
     commit: "2d89f0c8",
-    branch: "main",
+    branch: "Groth16",
     status: "Verified",
     mark_price: "1947.6",
     date: "45 minutes ago",
@@ -346,7 +346,7 @@ export default function DesktopApp() {
                           scope="col"
                           className="hidden py-2 pl-0 pr-8 font-semibold sm:table-cell"
                         >
-                          Proving Key
+                          Data Integrity Proof
                         </th>
                         <th
                           scope="col"
