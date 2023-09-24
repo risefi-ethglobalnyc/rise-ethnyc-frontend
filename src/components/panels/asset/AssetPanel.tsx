@@ -25,7 +25,7 @@ export default function AssetPanel(props: { totalPnL: number }) {
   }
 
   return (
-    <div className="overflow-hidden pt-1 pb-6 bg-gray-900 shadow">
+    <div className="overflow-hidden pt-1 pb-6 bg-gray-900 shadow rounded-lg">
       {/* <div className="overflow-hidden h-1/6 bg-gray-900 shadow hover:bg-gray-600"> */}
       <FaucetModal
         openFaucetModal={openFaucetModal}

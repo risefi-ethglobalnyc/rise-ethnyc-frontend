@@ -263,10 +263,26 @@ export default function DesktopApp() {
             />
             <div className="grid grid-cols-6 gap-0.5 justify-items-stretch items-stretch">
               <SlideOver open={slideOverOpen} setOpen={setSlideOverOpen} />
-
               <div className="col-span-6 justify-center">
-                <div className="grid grid-cols-4">
-                  <div className="col-span-3">
+                <div className="flex flex-col items-center justify-start gap-x-4 gap-y-4 bg-gray-800 px-4 py-4 sm:flex-row sm:px-6 lg:px-8">
+                  <div className="flex items-center gap-x-3">
+                    <div className="flex-none rounded-full bg-green-400/10 p-1 text-green-400">
+                      <div className="h-2 w-2 rounded-full bg-current" />
+                    </div>
+                    <h1 className="flex gap-x-3 text-base leading-7">
+                      <span className="font-semibold text-white">
+                        Price Feed Status
+                      </span>
+                    </h1>
+                  </div>
+                  <div className="flex flex-row items-center gap-1 text-gray-100">
+                    <div className="order-first flex-none rounded-md bg-indigo-400/10 px-2 py-1 text-xs font-medium text-indigo-400 ring-1 ring-inset ring-indigo-400/30 sm:order-none">
+                      ETH/USDC
+                    </div>
+                  </div>
+                </div>
+                <div className="grid grid-cols-2">
+                  <div className="col-span-1">
                     <PriceBoard
                       wsPrice={wsPrice}
                       prevWsPrice={prevWsPrice}
@@ -276,13 +292,19 @@ export default function DesktopApp() {
                       setPriceUpdateFlag={setPriceUpdateFlag}
                     />
                   </div>
-                  <div className="col-span-1 mr-5 rounded-lg">
-                    <OrderPanel
-                      wsPrice={wsPrice}
-                      markPrice={markPrice}
-                      totalPnL={totalPnL}
-                    />
-                    <AssetPanel totalPnL={totalPnL} />
+                  <div className="col-span-1 mr-5 mb-4">
+                    <div className="grid grid-cols-2">
+                      <div className="mr-2.5">
+                        <AssetPanel totalPnL={totalPnL} />
+                      </div>
+                      <div className="ml-2.5">
+                        <OrderPanel
+                          wsPrice={wsPrice}
+                          markPrice={markPrice}
+                          totalPnL={totalPnL}
+                        />
+                      </div>
+                    </div>
                   </div>
 
                   {/* <TradingViewWidget x={19} y={8} /> */}

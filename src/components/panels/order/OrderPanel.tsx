@@ -279,7 +279,7 @@ export default function OrderPanel(props: {
   };
 
   return (
-    <div className="overflow-hidden h-auto bg-gray-900 shadow resize-y rounded-md ">
+    <div className="overflow-hidden h-auto bg-gray-900 shadow resize-y rounded-lg ">
       {/* <div className="overflow-hidden h-3/4 bg-gray-800 shadow hover:bg-gray-600"> */}
       <FaucetModal
         openFaucetModal={openFaucetModal}
