@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 
 import { useEffect, useRef, useState } from "react";
 import { useSetRecoilState } from "recoil";
@@ -31,86 +31,40 @@ import getTraderBalanceFormatted from "@/rpc/l3/getTraderBalance";
 
 import SlideOver from "./SlideOver";
 
+// const callAPI = async () => {
+//   try {
+//     const res = await fetch(`http://127.0.0.1:8888`);
+//     const data = await res.json();
+//     console.log(data);
+//   } catch (err) {
+//     console.log(err);
+//   }
+// };
+
+const getProofList = async () => {
+  try {
+    const res = await fetch(`http://127.0.0.1:8888/snark/proof-list`);
+    const data = await res.json();
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const callGerenateProofAPI = async () => {
+  try {
+    const res = await fetch(`http://127.0.0.1:8888/snark/generate-proof`);
+    const data = await res.json();
+    console.log(data);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 const statuses = {
   Verified: "text-green-400 bg-green-400/10",
   Error: "text-rose-400 bg-rose-400/10",
 };
-const activityItems = [
-  {
-    tx_id: "0xcce3...1b49",
-    commit: "2d89f0c1",
-    branch: "Groth16",
-    status: "Verified",
-    mark_price: "1947.6",
-    date: "45 minutes ago",
-    dateTime: "2023-09-15 05:26:56",
-  },
-  {
-    tx_id: "0xcce3...1b49",
-    commit: "2d89f0c2",
-    branch: "Groth16",
-    status: "Verified",
-    mark_price: "1947.6",
-    date: "45 minutes ago",
-    dateTime: "2023-09-15 05:26:56",
-  },
-  {
-    tx_id: "0xcce3...1b49",
-    commit: "2d89f0c3",
-    branch: "Groth16",
-    status: "Verified",
-    mark_price: "1947.6",
-    date: "45 minutes ago",
-    dateTime: "2023-09-15 05:26:56",
-  },
-  {
-    tx_id: "0xcce3...1b49",
-    commit: "2d89f0c4",
-    branch: "Groth16",
-    status: "Verified",
-    mark_price: "1947.6",
-    date: "45 minutes ago",
-    dateTime: "2023-09-15 05:26:56",
-  },
-  {
-    tx_id: "0xcce3...1b49",
-    commit: "2d89f0c5",
-    branch: "Groth16",
-    status: "Verified",
-    mark_price: "1947.6",
-    date: "45 minutes ago",
-    dateTime: "2023-09-15 05:26:56",
-  },
-  {
-    tx_id: "0xcce3...1b49",
-    commit: "2d89f0c6",
-    branch: "Groth16",
-    status: "Verified",
-    mark_price: "1947.6",
-    date: "45 minutes ago",
-    dateTime: "2023-09-15 05:26:56",
-  },
-  {
-    tx_id: "0xcce3...1b49",
-    commit: "2d89f0c7",
-    branch: "Groth16",
-    status: "Verified",
-    mark_price: "1947.6",
-    date: "45 minutes ago",
-    dateTime: "2023-09-15 05:26:56",
-  },
-  {
-    tx_id: "0xcce3...1b49",
-    commit: "2d89f0c8",
-    branch: "Groth16",
-    status: "Verified",
-    mark_price: "1947.6",
-    date: "45 minutes ago",
-    dateTime: "2023-09-15 05:26:56",
-  },
-
-  // More items...
-];
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -134,6 +88,11 @@ export default function DesktopApp() {
 
   const [openPositionsCount, setOpenPositionsCount] = useState(0);
   const [openOrdersCount, setOpenOrdersCount] = useState(0); // not used yet
+
+  const [orderCompleteFlag, setOrderCompleteFlag] = useState(false);
+
+  // Activity Items
+  const [activityItems, setActivityItems] = useState([]);
 
   // Recoil States
   const setOpenPosition = useSetRecoilState(openPositionState);
@@ -213,6 +172,17 @@ export default function DesktopApp() {
     };
     getOpenPositionsFormatted();
   });
+
+  useEffect(() => {
+    const _getProofList = async () => {
+      const proofList = await getProofList();
+      console.log(proofList);
+      // reverse order
+      proofList.reverse();
+      setActivityItems(proofList);
+    };
+    _getProofList();
+  }, [orderCompleteFlag]);
 
   useEffect(() => {
     console.log(">>> Desktop::useEffect::getOrderHistory");
@@ -302,6 +272,7 @@ export default function DesktopApp() {
                           wsPrice={wsPrice}
                           markPrice={markPrice}
                           totalPnL={totalPnL}
+                          setOrderCompleteFlag={setOrderCompleteFlag}
                         />
                       </div>
                     </div>
@@ -309,6 +280,7 @@ export default function DesktopApp() {
 
                   {/* <TradingViewWidget x={19} y={8} /> */}
                 </div>
+
                 <TableTabsDesktop
                   wsPrice={wsPrice}
                   markPrice={markPrice}
@@ -346,7 +318,7 @@ export default function DesktopApp() {
                           scope="col"
                           className="hidden py-2 pl-0 pr-8 font-semibold sm:table-cell"
                         >
-                          Data Integrity Proof (SNARK Impl.)
+                          Data Integrity Proof Hash
                         </th>
                         <th
                           scope="col"

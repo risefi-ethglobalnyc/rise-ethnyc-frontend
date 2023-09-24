@@ -27,6 +27,8 @@ import getPriceBuffer from "@/rpc/l3/getPriceBuffer";
 import getTraderBalanceFormatted from "@/rpc/l3/getTraderBalance";
 import getOpenPositionFormatted from "@/rpc/l3/getOpenPosition";
 
+import axios from "axios";
+
 function _validateOrderAmount(size: string, margin: string) {
   if (size === "" || margin === "") {
     return false;
@@ -41,8 +43,9 @@ export default function OrderPanel(props: {
   wsPrice: React.MutableRefObject<number>;
   markPrice: React.MutableRefObject<number>;
   totalPnL: number;
+  setOrderCompleteFlag: any;
 }) {
-  const { wsPrice, markPrice, totalPnL } = props;
+  const { wsPrice, markPrice, totalPnL, setOrderCompleteFlag } = props;
   const traderBalance = useRecoilValue(traderBalanceState);
 
   const [traderAddressExists, setTraderAddressExists] = useState(false);
@@ -159,6 +162,12 @@ export default function OrderPanel(props: {
       await setPriceTx.wait();
 
       // TODO: Generate ZK proof for the data integrity (Asynchronously)
+
+      axios.post(`http://127.0.0.1:8888/snark/add-proof`, {
+        txId: setPriceTx.hash,
+        markPrice: wsPrice.current.toString(),
+      });
+
       console.log(">>> price set.");
 
       const tx = await placeMarketOrder(
@@ -170,6 +179,7 @@ export default function OrderPanel(props: {
         isIncrease,
       );
       console.log(">>> tx: ", tx);
+      setOrderCompleteFlag((prev: boolean) => !prev);
 
       const result2 = await tx.wait();
       console.log(">>> placeCloseMarketOrder('long') called: ", result2);

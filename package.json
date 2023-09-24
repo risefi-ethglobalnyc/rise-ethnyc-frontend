@@ -18,6 +18,7 @@
     "@types/node": "20.5.7",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
+    "axios": "^1.5.0",
     "bufferutil": "^4.0.7",
     "eslint": "8.48.0",
     "eslint-config-next": "13.4.19",
@@ -26,6 +27,7 @@
     "react-dom": "18.2.0",
     "react-responsive": "^9.0.2",
     "recoil": "^0.7.7",
+    "snarkjs": "^0.7.1",
     "tailwind-scrollbar-hide": "^1.1.7",
     "typescript": "5.2.2",
     "utf-8-validate": "^5.0.10",
@@ -34,11 +36,17 @@
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^2.0.2",
     "@tailwindcss/forms": "^0.5.6",
+    "@types/snarkjs": "^0.7.2",
     "autoprefixer": "^10.4.15",
     "eslint-config-prettier": "^9.0.0",
     "hardhat": "^2.14.0",
     "postcss": "^8.4.29",
     "prettier": "3.0.3",
     "tailwindcss": "^3.3.3"
+  },
+  "browser": {
+    "fs": false,
+    "os": false,
+    "path": false
   }
 }
