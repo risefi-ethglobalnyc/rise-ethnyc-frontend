@@ -153,9 +153,9 @@ export default function OrderPanel(props: {
       });
       console.log(">>> index price: ", wsPrice.current.toString());
       console.log(">>> checkpoint 0");
-      // const setPriceTx = await _setIndexPrice(xyz, wsPrice.current.toString());
+      const setPriceTx = await _setIndexPrice(xyz, wsPrice.current.toString());
       console.log(">>> checkpoint 3");
-      // await setPriceTx.wait();
+      await setPriceTx.wait();
 
       // TODO: Generate ZK proof for the data integrity (Asynchronously)
       console.log(">>> price set.");
