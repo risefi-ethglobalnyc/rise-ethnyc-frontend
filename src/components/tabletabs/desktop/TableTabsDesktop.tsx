@@ -38,7 +38,7 @@ export default function TableTabsDesktop(props: TableTabsDesktopProps) {
   ];
 
   return (
-    <div className="bg-gray-900">
+    <div className="bg-gray-900 mx-6">
       {/* Mobile */}
       <div className="sm:hidden">
         {/* Use an "onChange" listener to redirect the user to the selected tab URL. */}

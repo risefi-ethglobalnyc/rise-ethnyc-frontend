@@ -105,45 +105,59 @@ export default function PriceBoard(props: PriceBoardProps) {
   }
 
   return (
-    <div>
-      <div className="hidden md:block">
-        <div className="flex flex-col align-center">
-          <ul
-            role="list"
-            className=" bg-gray-900 px-4 py-1 sm:px-0  text-gray-100"
-          >
-            <div className="flex flex-row h-14 items-center divide-x divide-gray-600">
-              <div className="flex-col flex-none w-30 h-15 px-5 text-md">
-                <Group>
-                  <EthLogo />
-                  <Box>
-                    <Text fw={600}>ETH/USDC</Text>
-                    <Text fz="xs">Perpetual</Text>
-                  </Box>
-                </Group>
-              </div>
-              <div className="flex-none w-30 h-15 px-5 text-sm text-center">
-                {/* Mark Price */}
-                <Box>
-                  <div
-                    className={`text-lg font-semibold ${
-                      markPrice.current.toFixed(2) >
-                      prevMarkPrice.current.toFixed(2)
-                        ? "text-long " // Green for price going up
-                        : markPrice.current.toFixed(2) <
-                          prevMarkPrice.current.toFixed(2)
-                        ? "text-short" // Red for price going down
-                        : "text-gray-100" // White for no change
-                    }`}
-                  >
-                    {formatUsdString(markPrice.current, 2)}
-                  </div>
-                </Box>
-              </div>
-            </div>
-          </ul>
+    <>
+      <div className="flex flex-col items-center justify-start gap-x-4 gap-y-4 bg-gray-800 px-4 py-4 sm:flex-row sm:px-6 lg:px-8">
+        <div className="flex items-center gap-x-3">
+          <div className="flex-none rounded-full bg-green-400/10 p-1 text-green-400">
+            <div className="h-2 w-2 rounded-full bg-current" />
+          </div>
+          <h1 className="flex gap-x-3 text-base leading-7">
+            <span className="font-semibold text-white">Price Feed Status</span>
+          </h1>
+        </div>
+        <div className="flex flex-row items-center gap-1 text-gray-100">
+          <div className="order-first flex-none rounded-md bg-indigo-400/10 px-2 py-1 text-xs font-medium text-indigo-400 ring-1 ring-inset ring-indigo-400/30 sm:order-none">
+            ETH/USDC
+          </div>
         </div>
       </div>
-    </div>
+
+      <dl className="mx-5 mb-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div
+          key={1}
+          className="relative overflow-hidden rounded-lg text-gray-100 bg-gray-900 px-6 pb-5 pt-6 shadow"
+        >
+          <div className="flex flex-row h-14 items-center divide-x divide-gray-600">
+            <div className="flex-col flex-none w-30 h-15 px-5 text-md">
+              <Group>
+                <EthLogo />
+                <Box>
+                  <Text fw={600}>ETH/USDC</Text>
+                  <Text fz="xs">Perpetual</Text>
+                </Box>
+              </Group>
+            </div>
+            <div className="flex-none w-30 h-15 px-5 text-sm text-center">
+              {/* Mark Price */}
+              <Box>
+                <div
+                  className={`text-lg font-semibold ${
+                    markPrice.current.toFixed(2) >
+                    prevMarkPrice.current.toFixed(2)
+                      ? "text-long " // Green for price going up
+                      : markPrice.current.toFixed(2) <
+                        prevMarkPrice.current.toFixed(2)
+                      ? "text-short" // Red for price going down
+                      : "text-gray-100" // White for no change
+                  }`}
+                >
+                  {formatUsdString(markPrice.current, 2)}
+                </div>
+              </Box>
+            </div>
+          </div>
+        </div>
+      </dl>
+    </>
   );
 }

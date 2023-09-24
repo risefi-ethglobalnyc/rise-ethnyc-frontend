@@ -173,9 +173,6 @@ export default function DesktopApp() {
             />
             <div className="grid grid-cols-6 gap-0.5 justify-items-stretch items-stretch">
               <div className="col-span-5 justify-center">
-                <div className="bg-gray-900 h-13 ">
-                  {/* <TradingViewTickerTapeWidget /> */}
-                </div>
                 <PriceBoard
                   wsPrice={wsPrice}
                   prevWsPrice={prevWsPrice}
